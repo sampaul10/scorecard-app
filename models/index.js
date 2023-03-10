@@ -15,13 +15,11 @@ Golfer.hasMany(Game, {
 
 // hole belongsTo game
 Hole.belongsToMany(Game, {
-  through: GameHole,
-  foreignKey: 'product_id',
+  foreignKey: 'game_id',
 })
 
 // Game hasMany hole
 Game.belongsTo(Hole, {
-  through: GameHole,
   foreignKey: 'game_id',
 })
 
