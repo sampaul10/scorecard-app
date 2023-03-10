@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./public/css/style.css">
-    <title>Scorecard</title>
-</head>
-
-<body>
-    <header class="is-flex is-justify-content-space-between is-align-content-center">
-        <h1 class="is-size-2">Scorecard</h1>
-        <nav class="is-flex is-align-items-center">
-          {{#if logged_in}}
-          <a href="/profile"><button class="button">Profile</button></a>
-          <button class="button" id="logout">logout</button>
-          {{else}}
-          <a href="/login"><button class="button">Login</button></a>
-          {{/if}}
-        </nav>
-    </header>
-
-    <main class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-      <!-- <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
+<div class="is-flex is-flex-wrap-wrap is-justify-content-center">
         <table class="table">
             <thead>
               <tr>
@@ -89,13 +64,4 @@
       </div> 
       <div>
         <p class="is-size-2">Score:</p>
-      </div>         -->
-          
-    </main>
-
-    <footer class="is-flex is-justify-content-center">
-        <h2>Created by Group 4</h2>
-    </footer>
-    <script src="https://kit.fontawesome.com/7cfb28f511.js" crossorigin="anonymous"></script>
-</body>
-</html>
+      </div>

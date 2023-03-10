@@ -1,3 +1,15 @@
 main {
     height: 100vh;
 }
+
+.hole-score {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+td input {
+    font-size: 2.1rem;
+    font-weight: 900;
+    padding-left: 7px;
+    caret-color: rgba(0, 0, 0, 0);
+}
