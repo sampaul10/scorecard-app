@@ -6,96 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <title>Scorecard</title>
+    <title>Scorecards</title>
 </head>
 
 <body>
     <header class="is-flex is-justify-content-space-between is-align-content-center">
-        <h1 class="is-size-2">Scorecard</h1>
+        <h1 class="is-size-2">Scorecards</h1>
         <nav class="is-flex is-align-items-center">
           {{#if logged_in}}
-          <a href="/profile"><button class="button">Profile</button></a>
-          <button class="button" id="logout">logout</button>
+          <a href="/profile"><button class="button has-background-dark has-text-info-light">Profile</button></a>
+          <button class="button has-background-dark has-text-info-light" id="logout">Logout</button>
           {{else}}
-          <a href="/login"><button class="button">Login</button></a>
+          <a href="/login"><button class="button has-background-dark has-text-info-light">Login</button></a>
           {{/if}}
         </nav>
     </header>
 
     <main class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-      <!-- <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>Hole</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-                <td></td>
-              </tr>
-            </tbody>
-        </table>
-        <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>10</th>
-              <th>11</th>
-              <th>12</th>
-              <th>13</th>
-              <th>14</th>
-              <th>15</th>
-              <th>16</th>
-              <th>17</th>
-              <th>18</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td><input class="hole-score" maxlength="1" type="text" placeholder=""></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> 
-      <div>
-        <p class="is-size-2">Score:</p>
-      </div>         -->
-          
+          <!-- TEST BELOW -->
+
+
+
     </main>
 
     <footer class="is-flex is-justify-content-center">
         <h2>Created by Group 4</h2>
     </footer>
-    <script src="https://kit.fontawesome.com/7cfb28f511.js" crossorigin="anonymous"></script>
+    
 </body>
 </html>
