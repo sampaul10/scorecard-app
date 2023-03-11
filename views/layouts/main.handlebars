@@ -6,24 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <title>Scorecard</title>
+    <title>Scorecards</title>
 </head>
 
 <body>
     <header class="is-flex is-justify-content-space-between is-align-content-center">
-        <h1 class="is-size-2">Scorecard</h1>
+        <h1 class="is-size-2">Scorecards</h1>
         <nav class="is-flex is-align-items-center">
           {{#if logged_in}}
-          <a href="/profile"><button class="button">Profile</button></a>
-          <button class="button" id="logout">logout</button>
+          <a href="/profile"><button class="button has-background-dark has-text-info-light">Profile</button></a>
+          <button class="button has-background-dark has-text-info-light" id="logout">Logout</button>
           {{else}}
-          <a href="/login"><button class="button">Login</button></a>
+          <a href="/login"><button class="button has-background-dark has-text-info-light">Login</button></a>
           {{/if}}
         </nav>
     </header>
 
     <main class="is-flex is-justify-content-center is-align-items-center">
+
         {{{ body }}}
+
     </main>
 
     <footer class="is-flex is-justify-content-center">
