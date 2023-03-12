@@ -24,38 +24,16 @@
 
     <main class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
           <!-- TEST BELOW -->
-          <p class="is-size-2">Date:</p>
-
-          <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="1" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="2" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="3" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="4" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="5" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="6" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="7" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="8" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="9" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="10" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="11" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="12" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="13" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="14" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="15" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="16" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="17" /></td>
-            <td><input class="hole-score" maxlength="1" type="number" placeholder="18" /></td>
-          </div>
           
-          <p class="is-size-2">Score:</p>
-          <div class="notes">
-            <textarea class="textarea is-warning" placeholder="Notes:"></textarea>
-          </div>
     </main>
 
     <footer class="is-flex is-justify-content-center">
         <h2>Created by Group 4</h2>
     </footer>
     
+    <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
