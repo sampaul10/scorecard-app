@@ -5,7 +5,7 @@ router.post('/', async (req, res) => {
     try {
       const newHole = await Hole.create({
         ...req.body,
-        user_id: req.session.game_id,
+        hole_id: req.session.hole_id,
       });
   
       res.status(200).json(newHole);
