@@ -23,5 +23,5 @@ const newFormHandler = async (event) => {
   };
 
   document
-  .querySelector('.new-project-form')
+  .querySelector('.new-scorecard')
   .addEventListener('submit', newFormHandler);
