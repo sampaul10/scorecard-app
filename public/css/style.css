@@ -1,4 +1,4 @@
-body {
+html {
     background-image: url(./Untitled_Artwork.png);
     background-position: left;
     background-size: cover;
@@ -12,10 +12,6 @@ h1, p {
     -webkit-text-stroke-color: black;
     font-style: oblique;
     margin-left: 2%;
-}
-
-main {
-    height: 100vh;
 }
 
 .hole-score {
