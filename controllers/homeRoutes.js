@@ -1,3 +1,4 @@
 const router = require('express').Router();
-const { game, golfer, hole} = require('../models');
+const { Game, Golfer, Hole} = require('../models');
 
+module.exports = router;
