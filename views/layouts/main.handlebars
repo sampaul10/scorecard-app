@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Scorecards</title>
 </head>
 
@@ -16,8 +16,6 @@
           {{#if logged_in}}
           <a href="/profile"><button class="button has-background-dark has-text-info-light">Profile</button></a>
           <button class="button has-background-dark has-text-info-light" id="logout">Logout</button>
-          {{else}}
-          <a href="/login"><button class="button has-background-dark has-text-info-light">Login</button></a>
           {{/if}}
         </nav>
     </header>
