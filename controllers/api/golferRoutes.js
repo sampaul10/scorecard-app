@@ -4,16 +4,18 @@ const { Golfer } = require('../../models');
 router.get('/', )
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
       const golferData = await Golfer.create(req.body);
   
       req.session.save(() => {
-        req.session.gofer_id = golferData.id;
+        req.session.golfer_id = golferData.id;
         req.session.logged_in = true;
   
         res.status(200).json(golferData);
       });
     } catch (err) {
+      console.log(err);
       res.status(400).json(err);
     }
   });
@@ -47,6 +49,7 @@ router.post('/', async (req, res) => {
   
     } catch (err) {
       res.status(400).json(err);
+      console.log(err);
     }
   });
   
