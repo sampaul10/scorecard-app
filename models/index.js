@@ -1,6 +1,6 @@
-const Golfer = require('./golfer');
-const Game = require('./game');
-const Hole = require('./hole');
+const Golfer = require('./Golfer');
+const Game = require('./Game');
+const Hole = require('./Hole');
 
 // Game belongsTo Golfer
 Game.belongsTo(Golfer, {
