@@ -5,13 +5,23 @@ html {
     background-color: coral;
 }
 
-h1, p {
+h1, h3 {
     font-weight: 900;
     color: yellow;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     font-style: oblique;
     margin-left: 2%;
+}
+
+.button {
+    margin: 2px;
+}
+
+.panel {
+    width: 80%;
+    backdrop-filter: blur(6px);
+    background-color: #9fdec47d;
 }
 
 .hole-score {

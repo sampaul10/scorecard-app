@@ -1,44 +1,51 @@
-<form class="box login-form">
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control">
-      <input class="input" type="email" id="email-login" placeholder="e.g. alex@example.com">
-    </div>
+<div class="is-flex is-flex-wrap-wrap is-justify-content-center">
+
+  <div class="is-flex is-flex-direction-column">
+    <form class="box m-2 login-form">
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input class="input" type="email" id="email-login" placeholder="e.g. alex@example.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="password" id="password-login" placeholder="********" />
+        </div>
+      </div>
+
+      <button class="button is-primary" type="submit">Sign in</button>
+    </form>
   </div>
 
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input class="input" type="password" id="password-login" placeholder="********">
-    </div>
+  <div class="is-flex is-flex-direction-column">
+    <form class="box m-2 signup-form">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input class="input" type="name" id="name-signup" placeholder="Who's golfing?" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input class="input" type="email" id="email-signup" placeholder="e.g. alex@example.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="password" id="password-signup" placeholder="********" />
+        </div>
+      </div>
+
+      <button class="button is-info" type="submit">Sign Up</button>
+    </form>
   </div>
-
-  <button class="button is-primary" type="submit">Sign in</button>
-</form>
-
-<form class="box signup-form">
-  <div class="field">
-    <label class="label">Name</label>
-    <div class="control">
-      <input class="input" type="name" id="name-signup" placeholder="Who's golfing?" />
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control">
-      <input class="input" type="email" id="email-signup" placeholder="e.g. alex@example.com" />
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input class="input" type="password" id="password-signup" placeholder="********" />
-    </div>
-  </div>
-
-  <button class="button is-info" type="submit">Sign Up</button>
-</form>
+</div>
 
 <script src="/js/login.js"></script>
