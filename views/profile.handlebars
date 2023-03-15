@@ -1,6 +1,8 @@
 <article class="panel is-primary">
+        {{#if logged_in}}
         <p class="panel-heading is-flex is-align-items-center is-justify-content-space-between">Welcome, "Golfer
-                Name".<button class="button is-info">STATS</button></p>
+                Name".<a href="/chart"><button class="button is-info">STATS</button></a></p>
+        {{/if}}
         {{#if logged_in}}
         <a href="/scorecard" class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
                                 aria-hidden="true"></i></span>
