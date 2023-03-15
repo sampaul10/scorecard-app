@@ -63,4 +63,26 @@ router.post('/', async (req, res) => {
     }
   });
 
+  //Get all games for user and get total score for each game
+  router.get('/scores', async (req, res) => {
+    try {
+      const golferData = await Golfer.findAll({
+        include: [{ model: Game }, { model: Hole }],
+        attributes: {
+          include: [
+            [
+              sequelize.literal(
+                '(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)'
+              ),
+              'totalScore',
+            ],
+          ],
+        },
+      });
+      res.status(200).json(golferData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
   module.exports = router;

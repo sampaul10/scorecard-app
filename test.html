@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
     <title>Scorecards</title>
@@ -70,8 +71,47 @@
                 date played
             </a>
         </article>
-   
-
+        
+        <div class="box has-background-primary">
+            <div style="width: 800px">
+                <canvas id="myChart"></canvas>
+            </div>
+                    
+            <script>
+                const ctx = document.getElementById('myChart');
+            
+                new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    datasets: [{
+                    label: 'Past Game Scores',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    borderColor: '#FFFFFF',
+                    backgroundColor: '#FFFFFF',
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 24,
+                                    family: "'BlinkMacSystemFont','-apple-system','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif'",
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                    }
+                }
+                });
+            </script>
+        </div>
     </main>
 
     <footer class="is-flex is-justify-content-center">
