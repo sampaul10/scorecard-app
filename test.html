@@ -23,36 +23,49 @@
 
     <main class="is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center mt-6">
           <!-- TEST BELOW -->
-          
+          <article class="panel is-primary">
+            <p class="panel-heading is-flex is-align-items-center is-justify-content-space-between">Welcome, "Golfer
+                    Name".<button class="button is-info">STATS</button></p>
+            {{#if logged_in}}
+            <a href="/scorecard" class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-center mr-3">+</div>
+            </a>
+            {{/if}}
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+            <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
+                                    aria-hidden="true"></i></span>
+                    <div class="played is-flex is-align-items-center is-justify-content-space-between">date played<button
+                                    class="delete"></button></div>
+            </a>
+    
+    
+    </article>
 
-<form class=" new-scorecard is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-center">
-  <h3 class="is-size-2">Date:</h3>
-  <div class="is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center">
-    <td><input class="hole-score" id="hole1" maxlength="1" type="number" placeholder="1" /></td>
-    <td><input class="hole-score" id="hole2" maxlength="1" type="number" placeholder="2" /></td>
-    <td><input class="hole-score" id="hole3" maxlength="1" type="number" placeholder="3" /></td>
-    <td><input class="hole-score" id="hole4" maxlength="1" type="number" placeholder="4" /></td>
-    <td><input class="hole-score" id="hole5" maxlength="1" type="number" placeholder="5" /></td>
-    <td><input class="hole-score" id="hole6" maxlength="1" type="number" placeholder="6" /></td>
-    <td><input class="hole-score" id="hole7" maxlength="1" type="number" placeholder="7" /></td>
-    <td><input class="hole-score" id="hole8" maxlength="1" type="number" placeholder="8" /></td>
-    <td><input class="hole-score" id="hole9" maxlength="1" type="number" placeholder="9" /></td>
-    <td><input class="hole-score" id="hole10" maxlength="1" type="number" placeholder="10" /></td>
-    <td><input class="hole-score" id="hole11" maxlength="1" type="number" placeholder="11" /></td>
-    <td><input class="hole-score" id="hole12" maxlength="1" type="number" placeholder="12" /></td>
-    <td><input class="hole-score" id="hole13" maxlength="1" type="number" placeholder="13" /></td>
-    <td><input class="hole-score" id="hole14" maxlength="1" type="number" placeholder="14" /></td>
-    <td><input class="hole-score" id="hole15" maxlength="1" type="number" placeholder="15" /></td>
-    <td><input class="hole-score" id="hole16" maxlength="1" type="number" placeholder="16" /></td>
-    <td><input class="hole-score" id="hole17" maxlength="1" type="number" placeholder="17" /></td>
-    <td><input class="hole-score" id="hole18" maxlength="1" type="number" placeholder="18" /></td>
-  </div>
-  <h3 class="is-size-2">Score:</h3>
-  <div class="notes">
-    <textarea class="textarea is-warning" placeholder="Notes:"></textarea>
-  </div>
-  <button class="button" type="submit">Save</button>
-</form>
     
     </main>
 
