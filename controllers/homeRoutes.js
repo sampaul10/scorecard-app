@@ -32,5 +32,15 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
+  router.get('/scorecard', withAuth, async (req, res) => {
+    try {
+      res.render('scorecard', {
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 module.exports = router;
