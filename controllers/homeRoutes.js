@@ -44,10 +44,19 @@ router.get('/profile', withAuth, async (req, res) => {
 
   router.get('/chart', withAuth, async (req, res) => {
     try {
+      const gameData = await Game.findAll();
+
+      const game = gameData.map((game) => game.get({ plain: true }));
+
+      console.log(game);
+
       res.render('chart', {
+        game,
         logged_in: true
       });
+
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   });
