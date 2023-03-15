@@ -24,6 +24,10 @@ h1, h3 {
     background-color: #9fdec47d;
 }
 
+.played {
+    width: 100%;
+}
+
 .hole-score {
     width: 5rem;
     height: 2.5rem;
