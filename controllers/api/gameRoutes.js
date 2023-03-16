@@ -2,20 +2,19 @@ const router = require('express').Router();
 const { Game, Golfer} = require('../../models');
 const withAuth = require('../../utils/auth');
 // remember to add withAuth
-router.post('/',  async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
       const newGame = await Game.create({
-        ...req.body,
         golfer_id: req.session.golfer_id,
       });
-  
       res.status(200).json(newGame);
     } catch (err) {
       res.status(400).json(err);
     }
   });
+  
   // remember to add withAUth
-  router.delete('/:id',  async (req, res) => {
+  router.delete('/:id',  withAuth, async (req, res) => {
     try {
       const gameData = await Game.destroy({
         where: {
