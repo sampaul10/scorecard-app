@@ -21,22 +21,26 @@ const delButtonHandler = async (event) => {
 
   
   const newGameHandler = async (event) => {
-  if (event.target.hasAttribute('game-id')) {
+  // if (event.target.hasAttribute('game-id')) {
+    console.log(event.target)
     const response = await fetch(`/api/games`, {
       method: 'POST',
+      body: JSON.stringify({ "golfer_id": 1,
+        "date_played": "Wed, 27 Dec 1995 13:30:00 GMT"
+      }),
       headers: {
         'Content-Type': 'application/json',
       }
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/scorecard');
     } else {
       alert('Failed to create game');
     }
   }
-};
+// };
 
 document
-  .querySelector('.game-id')
+  .querySelector('#game-id')
   .addEventListener('click', newGameHandler);

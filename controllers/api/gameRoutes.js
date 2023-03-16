@@ -3,9 +3,12 @@ const { Game, Golfer} = require('../../models');
 const withAuth = require('../../utils/auth');
 // remember to add withAuth
 router.post('/', withAuth, async (req, res) => {
+  console.log(req.body);
     try {
       const newGame = await Game.create({
+        ...req.body,
         golfer_id: req.session.golfer_id,
+        
       });
       res.status(200).json(newGame);
     } catch (err) {
