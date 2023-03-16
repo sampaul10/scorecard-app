@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Golfer } = require('../../models');
 
-router.get('/', )
-
 router.post('/', async (req, res) => {
     console.log(req.body);
     try {
