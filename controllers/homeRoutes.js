@@ -22,9 +22,11 @@ router.get('/profile', withAuth, async (req, res) => {
       });
   
       const golfer = golferData.get({ plain: true });
-  
+      
+      console.log(golfer);
+
       res.render('profile', {
-        ...golfer,
+        golfer,
         logged_in: true
       });
     } catch (err) {
