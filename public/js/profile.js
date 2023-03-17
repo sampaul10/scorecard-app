@@ -1,6 +1,6 @@
 const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('game-list')) {
-      const id = event.target.getAttribute('game-list');
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
       console.log(id);
   
       const response = await fetch(`/api/games/${id}`, {
@@ -26,8 +26,7 @@ const delButtonHandler = async (event) => {
     console.log(event.target)
     const response = await fetch(`/api/games`, {
       method: 'POST',
-      body: JSON.stringify({ "golfer_id": 1,
-        "date_played": "Wed, 27 Dec 1995 13:30:00 GMT"
+      body: JSON.stringify({ "golfer_id": 1
       }),
       headers: {
         'Content-Type': 'application/json',

@@ -8,9 +8,7 @@
 const ctx = document.getElementById('myChart');
 const game = '{{{game}}}';
 const games = JSON.parse(game);
-console.log(games);
 const gameArr = games.map(({date_played}) => date_played);
-console.log(gameArr);
 const scoreArr = games.map(({totalScore}) => totalScore);
 
 new Chart(ctx, {

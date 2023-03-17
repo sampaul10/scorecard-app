@@ -9,15 +9,16 @@
         </div>
         {{/if}}
        
-       
+       <div class="game-list">
        {{#each golfer.games}}
         <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
                                 aria-hidden="true"></i></span>
                 <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between">{{this.date_played}}<button
-                                class="delete game-list" game-list="{{this.id}}"></button></div>
+                                class="delete" data-id="{{this.id}}"></button></div>
         </a>
        
        {{/each}}
+       </div>
 
         {{game.id}}
 

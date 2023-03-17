@@ -47,7 +47,6 @@ router.post('/', async (req, res) => {
   
     } catch (err) {
       res.status(400).json(err);
-      console.log(err);
     }
   });
   
@@ -58,28 +57,6 @@ router.post('/', async (req, res) => {
       });
     } else {
       res.status(404).end();
-    }
-  });
-
-  //Get all games for user and get total score for each game
-  router.get('/scores', async (req, res) => {
-    try {
-      const golferData = await Golfer.findAll({
-        include: [{ model: Game }, { model: Hole }],
-        attributes: {
-          include: [
-            [
-              sequelize.literal(
-                '(SELECT SUM(score), date_played FROM game GROUP BY date_played FROM hole WHERE hole.game_id = game.id)'
-              ), 
-              'totalScore',
-            ],
-          ],
-        },
-      });
-      res.status(200).json(golferData);
-    } catch (err) {
-      res.status(500).json(err);
     }
   });
 
