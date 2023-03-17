@@ -14,6 +14,7 @@ Game.init(
     },   
     date_played: {
       type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW,
       allowNull: false,
     },
     golfer_id: {
@@ -26,7 +27,8 @@ Game.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
+    createdAt: true, 
     freezeTableName: true,
     underscored: true,
     modelName: 'game',
