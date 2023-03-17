@@ -22,7 +22,7 @@ const delButtonHandler = async (event) => {
 
   
   const newGameHandler = async (event) => {
-  // if (event.target.hasAttribute('game-id')) {
+  
     console.log(event.target)
     const response = await fetch(`/api/games`, {
       method: 'POST',
@@ -40,7 +40,7 @@ const delButtonHandler = async (event) => {
       alert('Failed to create game');
     }
   }
-// };
+
 
 document
   .querySelector('#game-id')
