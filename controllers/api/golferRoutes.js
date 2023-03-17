@@ -70,8 +70,8 @@ router.post('/', async (req, res) => {
           include: [
             [
               sequelize.literal(
-                '(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)'
-              ),
+                '(SELECT SUM(score), date_played FROM game GROUP BY date_played FROM hole WHERE hole.game_id = game.id)'
+              ), 
               'totalScore',
             ],
           ],

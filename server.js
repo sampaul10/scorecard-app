@@ -3,7 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const helpers = require('./utils/charthelper');
+const hbs = exphbs.create({ helpers });
 const sequelize = require('./config/connection');
 
 // Create a new sequelize store using the express-session package

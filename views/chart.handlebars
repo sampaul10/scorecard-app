@@ -2,45 +2,48 @@
     <div style="width: 800px">
         <canvas id="myChart"></canvas>
     </div>
-    {{game}}
+</div>
 
-    <script>
-        const ctx = document.getElementById('myChart');
-        console.log("test");
-        console.log({{game}});
-        var game = {{game}};
-        var gameArr = game.map(game.date_played);
+<script>
+const ctx = document.getElementById('myChart');
+const game = '{{{game}}}';
+const games = JSON.parse(game);
+console.log(games);
+const gameArr = games.map(({date_played}) => date_played);
+console.log(gameArr);
+const scoreArr = games.map(({totalScore}) => totalScore);
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: gameArr,
-                datasets: [{
-                    label: 'Past Game Scores',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1,
-                    borderColor: '#FFFFFF',
-                    backgroundColor: '#FFFFFF',
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 24,
-                                family: "'BlinkMacSystemFont','-apple-system','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif'",
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
+new Chart(ctx, {
+    type: 'line',
+    data: {
+      //Need to link to golferRoute /scores to pull in score for each game
+        labels: gameArr,
+        datasets: [{
+            label: 'Past Game Scores',
+            //do it with sequelize literals
+            data: scoreArr,
+            borderWidth: 1,
+            borderColor: '#FFFFFF',
+            backgroundColor: '#FFFFFF',
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 24,
+                        family: "'BlinkMacSystemFont','-apple-system','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif'",
                     }
                 }
             }
-        });
-    
-    </script>
-</div>
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
