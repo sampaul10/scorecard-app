@@ -44,3 +44,24 @@ const delButtonHandler = async (event) => {
 document
   .querySelector('#game-id')
   .addEventListener('click', newGameHandler);
+
+
+const pastGameHandler = async (event) => {
+     if (event.target.hasAttribute('open-id')) {
+      const id = event.target.getAttribute('open-id');
+  
+      const response = await fetch(`/api/games/${id}`, {
+        method: 'GET',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/games/:id');
+      } else {
+        alert('Failed to delete project');
+      }
+    }
+  };
+   
+document
+  .querySelector('#open')
+  .addEventListener('click', newGameHandler);
