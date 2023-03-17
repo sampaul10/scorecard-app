@@ -22,7 +22,6 @@ router.post('/', withAuth, async (req, res) => {
       const gameData = await Game.destroy({
         where: {
           id: req.params.id,
-          golfer_id: req.session.golfer_id,
         },
       });
   

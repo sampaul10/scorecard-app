@@ -21,6 +21,7 @@ Hole.belongsTo(Game, {
 // Game hasMany hole
 Game.hasMany(Hole, {
   foreignKey: 'game_id',
+  onDelete: 'CASCADE',
 })
 
 module.exports = {
