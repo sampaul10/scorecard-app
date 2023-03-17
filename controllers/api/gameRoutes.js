@@ -24,27 +24,6 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
-  router.put('/', withAuth, async (req, res) => {
-    console.log(req.body);
-      try {
-        // const newScore = await Hole.update({
-        //   ...req.body,
-        //   golfer_id: req.session.golfer_id,
-          
-        // });
-        // for (let i = 1; i < 19; i++) {
-          const newScore = await Hole.update({
-            score: req.body,
-            game_id: newScore.id
-          })
-        // }
-        res.status(200).json(newScore);
-      } catch (err) {
-        console.log(err)
-        res.status(400).json(err);
-      }
-    });
-  
   
   router.delete('/:id',  withAuth, async (req, res) => {
     try {
