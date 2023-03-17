@@ -18,6 +18,7 @@ Hole.init(
     },  
     score: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: false,
     },
     game_id: {
