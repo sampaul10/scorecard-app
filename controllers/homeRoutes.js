@@ -36,7 +36,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
 
   //View new scorecard
-  router.get('/scorecard', withAuth, async (req, res) => {
+  router.get('/scorecard/:id', withAuth, async (req, res) => {
     try {
       res.render('scorecard', {
         logged_in: true
@@ -50,10 +50,11 @@ router.get('/profile', withAuth, async (req, res) => {
   router.get('/scorecard/:id', async (req, res) => {
     try {
       const gameData = await Game.findByPk(req.params.id, {
-        include: [{model: Hole}],
+        include: [{ model: Hole }],
       });
   
       const game = gameData.get({ plain: true });
+      console.log("The value of game" + game);
   
       res.render('scorecard', {
         ...game,
@@ -73,7 +74,6 @@ router.get('/profile', withAuth, async (req, res) => {
           include: [
             [
               sequelize.literal(
-                //'(SELECT SUM(score), date_played FROM game GROUP BY date_played FROM hole WHERE hole.game_id = game.id)'
                 '(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)'
               ),
               'totalScore',

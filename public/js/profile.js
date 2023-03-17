@@ -34,7 +34,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/scorecard');
+      document.location.replace('/scorecard/:id');
     } else {
       alert('Failed to create game');
     }

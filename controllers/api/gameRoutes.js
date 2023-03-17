@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Game, Golfer, Hole } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//Create new game
 router.post('/', withAuth, async (req, res) => {
   // console.log(req.body);
     try {
@@ -19,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
       }
       res.status(200).json(newGame);
     } catch (err) {
-      console.log(err)
+      console.log("game routes post error" + err)
       res.status(400).json(err);
     }
   });
