@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Game, Golfer, Hole} = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 
 //Homepage with login page
 router.get('/', async (req, res) => {
@@ -46,9 +47,24 @@ router.get('/profile', withAuth, async (req, res) => {
 
   router.get('/chart', withAuth, async (req, res) => {
     try {
-      const gameData = await Game.findAll();
+      const gameData = await Game.findAll({
+        include: [{model: Hole}],
+        attributes: {
+          include: [
+            [
+              sequelize.literal(
+                //'(SELECT SUM(score), date_played FROM game GROUP BY date_played FROM hole WHERE hole.game_id = game.id)'
+                '(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)'
+              ),
+              'totalScore',
+            ],
+          ],
+        },
+    });
 
-      const game = gameData.map((game) => game.get({ plain: true }));
+      let game = gameData.map((game) => game.get({ plain: true }));
+
+      game = JSON.stringify(game);
 
       console.log(game);
 

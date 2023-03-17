@@ -1,9 +1,10 @@
 
-
-/*
 import Chart from 'chart.js/auto'
 
 const ctx = document.getElementById('myChart');
+//Use fetch api to get data
+const game = {{game}};
+const gameArr = game.map(game.date_played);
 
 new Chart(ctx, {
     type: 'line',
@@ -36,4 +37,3 @@ new Chart(ctx, {
         }
     }
 });
-*/
