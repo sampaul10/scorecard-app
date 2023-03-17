@@ -1,6 +1,7 @@
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('game-list')) {
       const id = event.target.getAttribute('game-list');
+      console.log(id);
   
       const response = await fetch(`/api/games/${id}`, {
         method: 'DELETE',

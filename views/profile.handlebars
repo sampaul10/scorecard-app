@@ -13,7 +13,7 @@
        {{#each golfer.games}}
         <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
                                 aria-hidden="true"></i></span>
-                <div class="played is-flex is-align-items-center is-justify-content-space-between">{{this.date_played}}<button
+                <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between">{{this.date_played}}<button
                                 class="delete game-list" game-list="{{this.id}}"></button></div>
         </a>
        
@@ -22,3 +22,5 @@
         {{game.id}}
 
 </article>
+
+ <script src="/js/profile.js"></script>
