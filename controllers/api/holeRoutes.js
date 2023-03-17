@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Hole } = require('../../models');
+const { Hole, Golfer, Game } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -13,14 +13,16 @@ router.post('/', async (req, res) => {
     }
   });
 
-  router.put('/', async (req, res) => {
+  router.put('/:id', async (req, res) => {
     console.log(req.body);
+    console.log(req.session)
+    console.log(req.body)
       try {
           const newScore = await Hole.update({
             score: req.body.score
           },
           { where: {
-            game_id: 24,
+            game_id: req.params.id,
             hole_number: 7
           }
           });
