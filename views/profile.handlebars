@@ -13,7 +13,7 @@
        {{#each golfer.games}}
         <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
                                 aria-hidden="true"></i></span>
-                <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between">{{this.date_played}}<button
+                <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between"><button id="open" open-id="{{this.id}}">{{this.date_played}}</button><button
                                 class="delete" data-id="{{this.id}}"></button></div>
         </a>
        

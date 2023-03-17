@@ -35,6 +35,7 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
+  //View new scorecard
   router.get('/scorecard', withAuth, async (req, res) => {
     try {
       res.render('scorecard', {
@@ -42,6 +43,25 @@ router.get('/profile', withAuth, async (req, res) => {
       });
     } catch (err) {
       res.status(500).json(err);
+    }
+  });
+
+  //View past scorecard
+  router.get('/scorecard/:id', async (req, res) => {
+    try {
+      const gameData = await Game.findByPk(req.params.id, {
+        include: [{model: Hole}],
+      });
+  
+      const game = gameData.get({ plain: true });
+  
+      res.render('scorecard', {
+        ...game,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+      console.log(err);
     }
   });
 
