@@ -16,11 +16,10 @@ const delButtonHandler = async (event) => {
   };
 
   document
-  .querySelector('.game-list')
-  .addEventListener('click', delButtonHandler);
+    .querySelector('.game-list')
+    .addEventListener('click', delButtonHandler);
 
 
-  
   const newGameHandler = async (event) => {
   
     console.log(event.target)
@@ -34,16 +33,15 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/scorecard/:id');
+      document.location.replace('/scorecard');
     } else {
-      alert('Failed to create game');
+      // alert('Failed to create game');
     }
   }
 
-
-document
-  .querySelector('#game-id')
-  .addEventListener('click', newGameHandler);
+  document
+    .querySelector('#game-id')
+    .addEventListener('click', newGameHandler);
 
 
 const pastGameHandler = async (event) => {
@@ -62,6 +60,6 @@ const pastGameHandler = async (event) => {
     }
   };
    
-document
-  .querySelector('#open')
-  .addEventListener('click', newGameHandler);
+  document
+    .querySelector('#open')
+    .addEventListener('click', newGameHandler);
