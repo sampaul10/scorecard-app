@@ -24,16 +24,16 @@ const newFormHandler = async (event) => {
     const id = event.target.getAttribute('data-id');
     const response = await fetch(`/api/holes/${id}`, {
       method: 'PUT',
-      body: JSON.stringify({ "score": hole1 }),
+      body: JSON.stringify({ 'score': hole1 }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
   
     if (response.ok) {
-        console.log(" Score card updated!");
+        console.log(' Score card updated!');
     } else {
-        alert('Failed to create project');
+        alert('Failed to update scorecard');
     }
   }
 };

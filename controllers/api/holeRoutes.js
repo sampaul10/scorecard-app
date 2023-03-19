@@ -1,11 +1,10 @@
-const router = require("express").Router();
-const { Hole, Golfer, Game } = require("../../models");
+const router = require('express').Router();
+const { Hole, Golfer, Game } = require('../../models');
 
 // Update a game's score
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   console.log(req.body);
-  console.log("params" + req.params.id);
-  console.log("session" + req.session);
+  console.log('params' + req.params.id);
   try {
     const newScore = await Hole.update(
       {
@@ -21,7 +20,7 @@ router.put("/:id", async (req, res) => {
 
     res.status(200).json(newScore);
   } catch (err) {
-    console.log("hole routes put error" + err);
+    console.log('hole routes put error' + err);
     res.status(400).json(err);
   }
 });

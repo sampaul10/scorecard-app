@@ -1,8 +1,6 @@
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    console.log(id);
-  
     const response = await fetch(`/api/games/${id}`, {
       method: 'DELETE',
     });
@@ -23,18 +21,18 @@ const delButtonHandler = async (event) => {
 const newGameHandler = async (event) => {
   const response = await fetch(`/`, {
     method: 'POST',
-    body: JSON.stringify({ "golfer_id": 1
+    body: JSON.stringify({ 'golfer_id': 1
     }),
     headers: {
       'Content-Type': 'application/json',
     }
   });
 
-  if (response.ok) {
-    // document.location.replace('/scorecard');
-  } else {
-    // alert('Failed to create game');
-  }
+  // if (response.ok) {
+  //   document.location.replace('/scorecard');
+  // } else {
+  //   alert('Failed to create game');
+  // }
 };
 
   document

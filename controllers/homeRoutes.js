@@ -1,31 +1,29 @@
-const router = require("express").Router();
-const { Game, Golfer, Hole } = require("../models");
-const withAuth = require("../utils/auth");
-const sequelize = require("../config/connection");
+const router = require('express').Router();
+const { Game, Golfer, Hole } = require('../models');
+const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 
 // Homepage with login page
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    res.render("login");
+    res.render('login');
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Use withAuth middleware to prevent access to route
-router.get("/profile", withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const golferData = await Golfer.findByPk(req.session.golfer_id, {
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ['password'] },
       include: [{ model: Game }],
     });
 
     const golfer = golferData.get({ plain: true });
 
-    console.log(golfer);
-
-    res.render("profile", {
+    res.render('profile', {
       golfer,
       logged_in: true,
     });
@@ -35,9 +33,9 @@ router.get("/profile", withAuth, async (req, res) => {
 });
 
 // View new scorecard
-router.get("/scorecard", withAuth, async (req, res) => {
+router.get('/scorecard', withAuth, async (req, res) => {
   try {
-    res.render("scorecard", {
+    res.render('scorecard', {
       logged_in: true,
     });
   } catch (err) {
@@ -46,7 +44,7 @@ router.get("/scorecard", withAuth, async (req, res) => {
 });
 
 // View past scorecard
-router.get("/scorecard/:id", async (req, res) => {
+router.get('/scorecard/:id', async (req, res) => {
   try {
     const gameData = await Game.findByPk(req.params.id, {
       include: [{ model: Hole }],
@@ -54,7 +52,7 @@ router.get("/scorecard/:id", async (req, res) => {
 
     const game = gameData.get({ plain: true });
 
-    res.render("scorecard", {
+    res.render('scorecard', {
       ...game,
       logged_in: req.session.logged_in,
     });
@@ -65,7 +63,7 @@ router.get("/scorecard/:id", async (req, res) => {
 });
 
 // View chart of score history
-router.get("/chart", withAuth, async (req, res) => {
+router.get('/chart', withAuth, async (req, res) => {
   try {
     const gameData = await Game.findAll({
       include: [{ model: Hole }],
@@ -73,9 +71,9 @@ router.get("/chart", withAuth, async (req, res) => {
         include: [
           [
             sequelize.literal(
-              "(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)"
+              '(SELECT SUM(score) FROM hole WHERE hole.game_id = game.id)'
             ),
-            "totalScore",
+            'totalScore',
           ],
         ],
       },
@@ -85,7 +83,7 @@ router.get("/chart", withAuth, async (req, res) => {
 
     game = JSON.stringify(game);
 
-    res.render("chart", {
+    res.render('chart', {
       game,
       logged_in: true,
     });
@@ -95,7 +93,7 @@ router.get("/chart", withAuth, async (req, res) => {
 });
 
 // Create new game
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newGame = await Game.create({
       ...req.body,
@@ -110,7 +108,7 @@ router.post("/", withAuth, async (req, res) => {
     }
 
     console.log();
-    console.log("The new game ID: " + newGame.id);
+    console.log('The new game ID: ' + newGame.id);
     console.log(req.body);
     console.log(req.session);
     console.log();
@@ -123,14 +121,14 @@ router.post("/", withAuth, async (req, res) => {
 
     console.log(JSON.stringify(roundPlayed));
 
-    res.render("scorecard", {
+    res.render('scorecard', {
       roundPlayed,
       logged_in: true,
     });
 
     // res.status(200).json(newGame);
   } catch (err) {
-    console.log("game routes post error" + err);
+    console.log('game routes post error' + err);
     res.status(400).json(err);
   }
 });

@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const { Game, Golfer, Hole } = require("../../models");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { Game, Golfer, Hole } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Delete a game
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const gameData = await Game.destroy({
       where: {
@@ -12,7 +12,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!gameData) {
-      res.status(404).json({ message: "No game found with this id!" });
+      res.status(404).json({ message: 'No game found with this id!' });
       return;
     }
 
