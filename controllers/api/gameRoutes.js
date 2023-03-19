@@ -2,9 +2,8 @@ const router = require('express').Router();
 const { Game, Golfer, Hole } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//Create new game
+// Create new game
 router.post('/', withAuth, async (req, res) => {
-  // console.log(req.body);
     try {
       const newGame = await Game.create({
         ...req.body,
@@ -18,7 +17,27 @@ router.post('/', withAuth, async (req, res) => {
           game_id: newGame.id
         })
       }
-      res.status(200).json(newGame);
+
+      console.log()
+      console.log("The new game ID: " + newGame.id)
+      console.log(req.body)
+      console.log(req.session)
+      console.log()
+      
+      const round = await Game.findByPk(newGame.id,
+           { include: [{ model: Hole }],
+      });
+      
+      const roundPlayed = round.get({ plain: true });
+      
+      console.log(JSON.stringify(roundPlayed) );
+
+      res.render('scorecard', {
+        roundPlayed,
+        logged_in: true
+      });
+
+      // res.status(200).json(newGame);
     } catch (err) {
       console.log("game routes post error" + err)
       res.status(400).json(err);
@@ -26,7 +45,8 @@ router.post('/', withAuth, async (req, res) => {
   });
 
   
-  router.delete('/:id',  withAuth, async (req, res) => {
+// Delete a game  
+router.delete('/:id',  withAuth, async (req, res) => {
     try {
       const gameData = await Game.destroy({
         where: {
@@ -44,6 +64,5 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-
 
 module.exports = router;

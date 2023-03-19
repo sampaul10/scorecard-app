@@ -1,11 +1,11 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
-    // Collect values from the login form
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+// Collect values from the login form
+const email = document.querySelector('#email-login').value.trim();
+const password = document.querySelector('#password-login').value.trim();
   
-    if (email && password) {
+if (email && password) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/golfers/login', {
         method: 'POST',
@@ -19,10 +19,10 @@ const loginFormHandler = async (event) => {
       } else {
         alert(response.statusText);
       }
-    }
-  };
+  }
+};
   
-  const signupFormHandler = async (event) => {
+const signupFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#name-signup').value.trim();
@@ -42,12 +42,12 @@ const loginFormHandler = async (event) => {
         alert(response.statusText);
       }
     }
-  };
+};
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
-  
-  document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
+    
+document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler);

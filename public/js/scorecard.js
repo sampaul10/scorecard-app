@@ -20,9 +20,7 @@ const newFormHandler = async (event) => {
     const hole17 = document.querySelector('#hole17').value.trim();
     const hole18 = document.querySelector('#hole18').value.trim();
 
-    
     if (hole1) {
-      if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
       const response = await fetch(`/api/holes/${id}`, {
         method: 'PUT',

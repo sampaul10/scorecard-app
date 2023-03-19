@@ -3,7 +3,7 @@ const { Game, Golfer, Hole} = require('../models');
 const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
 
-//Homepage with login page
+// Homepage with login page
 router.get('/', async (req, res) => {
     try {
       res.render('login');
@@ -12,8 +12,8 @@ router.get('/', async (req, res) => {
     }
   });
 
+
 // Use withAuth middleware to prevent access to route
-// ADD withAuth
 router.get('/profile', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -35,8 +35,9 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
-  //View new scorecard
-  router.get('/scorecard/:id', withAuth, async (req, res) => {
+
+// View new scorecard
+router.get('/scorecard', withAuth, async (req, res) => {
     try {
       res.render('scorecard', {
         logged_in: true
@@ -46,15 +47,15 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
-  //View past scorecard
-  router.get('/scorecard/:id', async (req, res) => {
+
+// View past scorecard
+router.get('/scorecard/:id', async (req, res) => {
     try {
       const gameData = await Game.findByPk(req.params.id, {
         include: [{ model: Hole }],
       });
   
       const game = gameData.get({ plain: true });
-      console.log("The value of game" + game);
   
       res.render('scorecard', {
         ...game,
@@ -66,7 +67,8 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
-  router.get('/chart', withAuth, async (req, res) => {
+  
+router.get('/chart', withAuth, async (req, res) => {
     try {
       const gameData = await Game.findAll({
         include: [{model: Hole}],
@@ -96,5 +98,46 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
+  //Create new game
+// router.post('/', withAuth, async (req, res) => {
+//   // console.log(req.body);
+//     try {
+//       const newGame = await Game.create({
+//         ...req.body,
+//         golfer_id: req.session.golfer_id,
+        
+//       });
+//       for (let i = 1; i < 19; i++) {
+//         await Hole.create({
+//           hole_number: i,
+//           score: 0,
+//           game_id: newGame.id
+//         })
+//       }
+//       console.log(newGame.id)
+//       console.log(req.body)
+//       console.log(req.session)
+      
+//       const round = await Game.findByPk(newGame.id,
+//            { include: [{ model: Hole }],
+//       });
+      
+//       const roundPlayed = round.get({ plain: true });
+      
+//       console.log(JSON.stringify(roundPlayed) );
+
+//       res.render('scorecard', {
+//         roundPlayed,
+//         logged_in: true
+//       });
+
+
+
+//       // res.status(200).json(newGame);
+//     } catch (err) {
+//       console.log("game routes post error" + err)
+//       res.status(400).json(err);
+//     }
+//   });
 
 module.exports = router;
