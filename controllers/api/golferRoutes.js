@@ -1,8 +1,7 @@
-const router = require("express").Router();
-const { Golfer } = require("../../models");
+const router = require('express').Router();
+const { Golfer } = require('../../models');
 
-router.post("/", async (req, res) => {
-  console.log(req.body);
+router.post('/', async (req, res) => {
   try {
     const golferData = await Golfer.create(req.body);
 
@@ -18,7 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const golferData = await Golfer.findOne({
       where: { email: req.body.email },
@@ -27,7 +26,7 @@ router.post("/login", async (req, res) => {
     if (!golferData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -36,7 +35,7 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -44,14 +43,14 @@ router.post("/login", async (req, res) => {
       req.session.golfer_id = golferData.id;
       req.session.logged_in = true;
 
-      res.json({ golfer: golferData, message: "You are now logged in!" });
+      res.json({ golfer: golferData, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post("/logout", (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
