@@ -1,6 +1,6 @@
-const Golfer = require('./Golfer');
-const Game = require('./Game');
-const Hole = require('./Hole');
+const Golfer = require('./golfer');
+const Game = require('./game');
+const Hole = require('./hole');
 
 // Golfer hasMany Games
 Golfer.hasMany(Game, {
