@@ -67,6 +67,9 @@ router.get('/chart', withAuth, async (req, res) => {
   try {
     const gameData = await Game.findAll({
       include: [{ model: Hole }],
+      where: {
+        golfer_id: req.session.golfer_id,
+      },
       attributes: {
         include: [
           [
@@ -88,6 +91,7 @@ router.get('/chart', withAuth, async (req, res) => {
       logged_in: true,
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
