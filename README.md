@@ -38,7 +38,7 @@
 
   ## Usage
   This is an Express.js application that is invoked in the command-line. The user must first create the schema from the MySQL shell. Then the server can be started by using the command: "npm start". Once the server is running, the user can visit the page in the browser to sign up and log in.<br><br>
-  This app is also being hosted on [Heroku]().<br><br>
+  This app is also being hosted on [Heroku](https://sam-scorecard-app.herokuapp.com/).<br><br>
   This screenshot shows the homepage opened in the browser:<br>
   ![alt text](./public/css/Screenshot.png)
 
