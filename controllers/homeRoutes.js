@@ -51,6 +51,7 @@ router.get('/scorecard/:id', async (req, res) => {
     });
 
     const game = gameData.get({ plain: true });
+    console.log(game)
 
     res.render('scorecard', {
       ...game,
@@ -111,30 +112,31 @@ router.post('/', withAuth, async (req, res) => {
       });
     }
 
-    console.log();
-    console.log('The new game ID: ' + newGame.id);
-    console.log(req.body);
-    console.log(req.session);
-    console.log();
+    // console.log();
+    // console.log('The new game ID: ' + newGame.id);
+    // console.log(req.body);
+    // console.log(req.session);
+    // console.log();
 
-    const round = await Game.findByPk(newGame.id, {
-      include: [{ model: Hole }],
-    });
+    // const round = await Game.findByPk(newGame.id, {
+    //   include: [{ model: Hole }],
+    // });
 
-    const roundPlayed = round.get({ plain: true });
+    // const roundPlayed = round.get({ plain: true });
 
-    console.log(JSON.stringify(roundPlayed));
+    // console.log(JSON.stringify(roundPlayed));
 
-    res.render('scorecard', {
-      roundPlayed,
-      logged_in: true,
-    });
+    // res.render('scorecard', {
+    //   roundPlayed,
+    //   logged_in: true,
+    // });
 
-    // res.status(200).json(newGame);
+    res.status(200).json(newGame.id);
   } catch (err) {
     console.log('game routes post error' + err);
     res.status(400).json(err);
   }
 });
+
 
 module.exports = router;

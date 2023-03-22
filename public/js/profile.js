@@ -28,11 +28,14 @@ const newGameHandler = async (event) => {
     }
   });
 
-  // if (response.ok) {
-  //   document.location.replace('/scorecard');
-  // } else {
-  //   alert('Failed to create game');
-  // }
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data)
+    const gameID = data
+    document.location.replace(`/scorecard/${gameID}`);
+  } else {
+    alert('Failed to create game');
+  }
 };
 
   document

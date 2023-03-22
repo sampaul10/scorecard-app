@@ -1,8 +1,11 @@
 <form class=" new-scorecard is-flex is-flex-direction-column is-flex-wrap-wrap is-align-items-center">
   <h3 class="is-size-2">Date: {{date_played}}</h3>
   <div class="is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center" data-id="{{id}}">
-    <td><input class="hole-score" id="hole1" maxlength="1" type="number" placeholder="1" /></td>
-    <td><input class="hole-score" id="hole2" maxlength="1" type="number" placeholder="2" /></td>
+    {{#each holes as | hole |}}
+    <td><input class="hole-score"  placeholder={{hole.score}} maxlength="1" type="number"/></td>
+    {{/each}}
+    <td><input class="hole-score" id="hole3" maxlength="1" type="number" placeholder="3" /></td>
+    {{!-- <td><input class="hole-score" id="hole2" maxlength="1" type="number" placeholder="2" /></td>
     <td><input class="hole-score" id="hole3" maxlength="1" type="number" placeholder="3" /></td>
     <td><input class="hole-score" id="hole4" maxlength="1" type="number" placeholder="4" /></td>
     <td><input class="hole-score" id="hole5" maxlength="1" type="number" placeholder="5" /></td>
@@ -18,7 +21,7 @@
     <td><input class="hole-score" id="hole15" maxlength="1" type="number" placeholder="15" /></td>
     <td><input class="hole-score" id="hole16" maxlength="1" type="number" placeholder="16" /></td>
     <td><input class="hole-score" id="hole17" maxlength="1" type="number" placeholder="17" /></td>
-    <td><input class="hole-score" id="hole18" maxlength="1" type="number" placeholder="18" /></td>
+    <td><input class="hole-score" id="hole18" maxlength="1" type="number" placeholder="18" /></td> --}}
   </div>
   <h3 class="is-size-2">Score:</h3>
   <div class="notes">
