@@ -19,7 +19,7 @@ const delButtonHandler = async (event) => {
 
 
 const newGameHandler = async (event) => {
-  const response = await fetch(`/`, {
+  const response = await fetch(`/api/games`, {
     method: 'POST',
     body: JSON.stringify({ 'golfer_id': 1
     }),
