@@ -1,24 +1,22 @@
 <article  class="panel is-primary">
-        {{#if logged_in}}
-        <p class="panel-heading is-flex is-align-items-center is-justify-content-space-between">Welcome, {{golfer.name}}.<a href="/chart"><button class="button is-info">STATS</button></a></p>
-        {{/if}}
-        {{#if logged_in}}
-        <div id="game-id" class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
-                                aria-hidden="true"></i></span>
-                <div class="played is-flex is-align-items-center is-justify-content-center mr-3">+</div>
-        </div>
-        {{/if}}
-       
-       <div class="game-list">
-       {{#each golfer.games}}
-        <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"
-                                aria-hidden="true"></i></span>
-                <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between"><button id="open" open-id="{{this.id}}">{{this.date_played}}</button><button
-                                class="delete" data-id="{{this.id}}"></button></div>
-        </a>
-       
-       {{/each}}
-       </div>
+  {{#if logged_in}}
+  <p class="panel-heading is-flex is-align-items-center is-justify-content-space-between">Welcome, {{golfer.name}}.<a href="/chart"><button class="button is-info">STATS</button></a></p>
+  {{/if}}
+  {{#if logged_in}}
+  <div id="game-id" class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"aria-hidden="true"></i></span>
+    <div class="played is-flex is-align-items-center is-justify-content-center mr-3">+</div>
+  </div>
+  {{/if}}
+  <div class="game-list">
+  {{#each golfer.games}}
+  <a class="panel-block is-active is-size-5"><span class="panel-icon"><i class="fas fa-book"aria-hidden="true"></i></span>
+    <div id={{this.id}} class="played is-flex is-align-items-center is-justify-content-space-between">
+      <button id="open" open-id="{{this.id}}">{{this.date_played}}</button>
+      <button class="delete" data-id="{{this.id}}"></button>
+    </div>
+  </a>
+  {{/each}}
+  </div>
 </article>
 
  <script src="/js/profile.js"></script>

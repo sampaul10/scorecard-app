@@ -19,7 +19,7 @@ const delButtonHandler = async (event) => {
 
 
 const newGameHandler = async (event) => {
-  const response = await fetch(`/`, {
+  const response = await fetch(`/api/games`, {
     method: 'POST',
     body: JSON.stringify({ 'golfer_id': 1
     }),
@@ -28,11 +28,14 @@ const newGameHandler = async (event) => {
     }
   });
 
-  // if (response.ok) {
-  //   document.location.replace('/scorecard');
-  // } else {
-  //   alert('Failed to create game');
-  // }
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data)
+    const gameID = data
+    document.location.replace(`/scorecard/${gameID}`);
+  } else {
+    alert('Failed to create game');
+  }
 };
 
   document
